@@ -16,7 +16,7 @@ class Configuration
     
     protected $password = '';
     
-    protected $host = 'https://services.circulodecredito.com.mx/sandbox/v2/rccficoscore';
+    protected $host = '';
     
     protected $userAgent = 'RCCFicoScoreSimulacion-Codegen/1.0.0/php';
     
