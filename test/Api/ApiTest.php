@@ -75,7 +75,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     {
         if($this->x_full_report == "false") {
             try {
-                $result = $this->apiInstance->getConsultas($folioConsulta, $this->x_api_key, $this->username, $this->password);
+                $result = $this->apiInstance->getConsultas($folioConsulta, $this->x_api_key);
                 print_r($result);
                 $this->assertTrue($result->getConsultas()!==null);
             } catch (Exception $e) {
@@ -177,5 +177,3 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         }         
     }    
 }
-
-
