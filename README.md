@@ -48,7 +48,6 @@ Los siguientes datos a modificar se encuentran en ***test/Api/ApiTest.php***
 Es importante contar con el setUp() que se encargará de inicializar la url. Modificar la URL ***('the_url')*** de la petición del objeto ***$config***, como se muestra en el siguiente fragmento de código:
 
 ```php
-
 public function setUp()
 {
     $handler = \GuzzleHttp\HandlerStack::create();
