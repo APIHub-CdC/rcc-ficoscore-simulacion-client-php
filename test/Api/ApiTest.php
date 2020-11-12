@@ -1,41 +1,44 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client;
+namespace RCCFS\Simulacion\MX\Client;
 
-use \RCCFicoScoreSimulacion\Client\Configuration;
-use \RCCFicoScoreSimulacion\Client\ApiException;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \GuzzleHttp\Client;
+
+use \RCCFS\Simulacion\MX\Client\Configuration;
+use \RCCFS\Simulacion\MX\Client\ApiException;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\Api\RCCFSApi as Instance;
+use \RCCFS\Simulacion\MX\Client\Model\CatalogoEstados;
+use \RCCFS\Simulacion\MX\Client\Model\PersonaPeticion;
+use \RCCFS\Simulacion\MX\Client\Model\DomicilioPeticion;
 
 class ApiTest extends \PHPUnit_Framework_TestCase
-{
+{  
 
     public function setUp()
     {
-        $handler = \GuzzleHttp\HandlerStack::create();
-        $config = new \RCCFicoScoreSimulacion\Client\Configuration();
+        $config = new Configuration();
         $config->setHost('the_url');
-
-        $client = new \GuzzleHttp\Client(['handler' => $handler, 'verify' => false]);
-        $this->apiInstance = new \RCCFicoScoreSimulacion\Client\Api\RCCFicoScoreSimulacionApi($client, $config);
-
-        $this->x_api_key = "your_api_key";
-        $this->x_full_report = 'false';         
-    }    
+        $client = new Client();
+        $this->apiInstance = new Instance($client, $config);
+        $this->x_api_key = "your_x_api_key";
+        $this->x_full_report = 'false';
+    }
 
     public function testGetReporte()
     {
-        $estado = new \RCCFicoScoreSimulacion\Client\Model\CatalogoEstados();
-        $nacionalidad = new \RCCFicoScoreSimulacion\Client\Model\CatalogoEstados();
-        $request = new \RCCFicoScoreSimulacion\Client\Model\PersonaPeticion();
-        $domicilio = new \RCCFicoScoreSimulacion\Client\Model\DomicilioPeticion();        
+        $estado = new CatalogoEstados();
+        $nacionalidad = new CatalogoEstados();
+        $request = new PersonaPeticion();
+        $domicilio = new DomicilioPeticion();        
 
-        $request->setApellidoPaterno("ROBERTO");
-        $request->setApellidoMaterno("SAHAGUN");
+        $request->setApellidoPaterno("SESENTAYDOS");
+        $request->setApellidoMaterno("PRUEBA");
         $request->setApellidoAdicional(null);
-        $request->setPrimerNombre("ZARAGOZA");
+        $request->setPrimerNombre("JUAN");
         $request->setSegundoNombre(null);
-        $request->setFechaNacimiento("1952-05-13");
-        $request->setRfc("SAZR010101");
+        $request->setFechaNacimiento("1965-08-09");
+        $request->setRfc("SEPJ650809JG1");
         $request->setCurp(null);
         $request->setNacionalidad("MX");
         $request->setResidencia(null);
@@ -45,12 +48,12 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $request->setNumeroDependientes(null);
         $request->setFechaDefuncion(null);
 
-        $domicilio->setDireccion("HIDALGO 32");
-        $domicilio->setColoniaPoblacion("CENTRO");
-        $domicilio->setDelegacionMunicipio("LA BARCA");
-        $domicilio->setCiudad("BENITO JUAREZ");
-        $domicilio->setEstado($estado::JAL);
-        $domicilio->setCp("44190");
+        $domicilio->setDireccion("PASADISO ENCONTRADO 58");
+        $domicilio->setColoniaPoblacion("MONTEVIDEO");
+        $domicilio->setDelegacionMunicipio("GUSTAVO A MADERO");
+        $domicilio->setCiudad("CIUDAD DE MÉXICO");
+        $domicilio->setEstado($estado::CDMX);
+        $domicilio->setCp("07730");
         $domicilio->setFechaResidencia(null);
         $domicilio->setNumeroTelefono(null);
         $domicilio->setTipoDomicilio(null);
@@ -64,7 +67,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
             return $result->getFolioConsulta();
         } catch (Exception $e) {
-            echo 'Exception when calling RCCFicoScoreSimulacionApi->getReporte: ', $e->getMessage(), PHP_EOL;
+            echo 'Exception when calling RCCFS\Simulacion\MXApi->getReporte: ', $e->getMessage(), PHP_EOL;
         }
     } 
 
@@ -79,7 +82,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getConsultas()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetConsultas: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetConsultas: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");
@@ -98,7 +101,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getCreditos()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetCreditos: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetCreditos: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");
@@ -116,7 +119,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getDomicilios()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetDomicilios: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetDomicilios: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");
@@ -134,7 +137,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getEmpleos()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetEmpleos: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetEmpleos: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");
@@ -152,7 +155,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getScores()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetScores: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetScores: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");
@@ -170,7 +173,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 print_r($result);
                 $this->assertTrue($result->getMensajes()!==null);
             } catch (Exception $e) {
-                echo 'Exception when calling RCCFicoScoreSimulacionApi->testGetMensajes: ', $e->getMessage(), PHP_EOL;
+                echo 'Exception when calling RCCFS\Simulacion\MXApi->testGetMensajes: ', $e->getMessage(), PHP_EOL;
             }
         } else {
             print_r("x_full_report inicializado en true");

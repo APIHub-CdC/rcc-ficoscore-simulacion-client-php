@@ -1,36 +1,36 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 use \ArrayAccess;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class Score implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $RCCFicoScoreSimulacionModelName = 'Score';
+    protected static $RCCFSModelName = 'Score';
     
-    protected static $RCCFicoScoreSimulacionTypes = [
+    protected static $RCCFSTypes = [
         'nombre_score' => 'string',
         'valor' => 'int',
-        'razones' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoRazones[]'
+        'razones' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoRazones[]'
     ];
     
-    protected static $RCCFicoScoreSimulacionFormats = [
+    protected static $RCCFSFormats = [
         'nombre_score' => null,
         'valor' => 'int32',
         'razones' => null
     ];
     
-    public static function RCCFicoScoreSimulacionTypes()
+    public static function RCCFSTypes()
     {
-        return self::$RCCFicoScoreSimulacionTypes;
+        return self::$RCCFSTypes;
     }
     
-    public static function RCCFicoScoreSimulacionFormats()
+    public static function RCCFSFormats()
     {
-        return self::$RCCFicoScoreSimulacionFormats;
+        return self::$RCCFSFormats;
     }
     
     protected static $attributeMap = [
@@ -68,7 +68,7 @@ class Score implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$RCCFicoScoreSimulacionModelName;
+        return self::$RCCFSModelName;
     }
     
     

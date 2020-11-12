@@ -1,31 +1,31 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 use \ArrayAccess;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class Respuesta implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $RCCFicoScoreSimulacionModelName = 'Respuesta';
+    protected static $RCCFSModelName = 'Respuesta';
     
-    protected static $RCCFicoScoreSimulacionTypes = [
+    protected static $RCCFSTypes = [
         'folio_consulta' => 'string',
         'folio_consulta_otorgante' => 'string',
         'clave_otorgante' => 'string',
         'declaraciones_consumidor' => 'string',
-        'persona' => '\RCCFicoScoreSimulacion\Client\Model\PersonaRespuesta',
-        'consultas' => '\RCCFicoScoreSimulacion\Client\Model\Consulta[]',
-        'creditos' => '\RCCFicoScoreSimulacion\Client\Model\Credito[]',
-        'domicilios' => '\RCCFicoScoreSimulacion\Client\Model\DomicilioRespuesta[]',
-        'empleos' => '\RCCFicoScoreSimulacion\Client\Model\Empleo[]',
-        'scores' => '\RCCFicoScoreSimulacion\Client\Model\Score[]',
-        'mensajes' => '\RCCFicoScoreSimulacion\Client\Model\Mensaje[]'
+        'persona' => '\RCCFS\Simulacion\MX\Client\Model\PersonaRespuesta',
+        'consultas' => '\RCCFS\Simulacion\MX\Client\Model\Consulta[]',
+        'creditos' => '\RCCFS\Simulacion\MX\Client\Model\Credito[]',
+        'domicilios' => '\RCCFS\Simulacion\MX\Client\Model\DomicilioRespuesta[]',
+        'empleos' => '\RCCFS\Simulacion\MX\Client\Model\Empleo[]',
+        'scores' => '\RCCFS\Simulacion\MX\Client\Model\Score[]',
+        'mensajes' => '\RCCFS\Simulacion\MX\Client\Model\Mensaje[]'
     ];
     
-    protected static $RCCFicoScoreSimulacionFormats = [
+    protected static $RCCFSFormats = [
         'folio_consulta' => null,
         'folio_consulta_otorgante' => null,
         'clave_otorgante' => null,
@@ -39,14 +39,14 @@ class Respuesta implements ModelInterface, ArrayAccess
         'mensajes' => null
     ];
     
-    public static function RCCFicoScoreSimulacionTypes()
+    public static function RCCFSTypes()
     {
-        return self::$RCCFicoScoreSimulacionTypes;
+        return self::$RCCFSTypes;
     }
     
-    public static function RCCFicoScoreSimulacionFormats()
+    public static function RCCFSFormats()
     {
-        return self::$RCCFicoScoreSimulacionFormats;
+        return self::$RCCFSFormats;
     }
     
     protected static $attributeMap = [
@@ -108,7 +108,7 @@ class Respuesta implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$RCCFicoScoreSimulacionModelName;
+        return self::$RCCFSModelName;
     }
     
     

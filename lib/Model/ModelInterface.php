@@ -1,15 +1,15 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 interface ModelInterface
 {
     
     public function getModelName();
     
-    public static function RCCFicoScoreSimulacionTypes();
+    public static function RCCFSTypes();
     
-    public static function RCCFicoScoreSimulacionFormats();
+    public static function RCCFSFormats();
     
     public static function attributeMap();
     

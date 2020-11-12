@@ -1,17 +1,17 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 use \ArrayAccess;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class CAN implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $RCCFicoScoreSimulacionModelName = 'CAN';
+    protected static $RCCFSModelName = 'CAN';
     
-    protected static $RCCFicoScoreSimulacionTypes = [
+    protected static $RCCFSTypes = [
         'identificador_can' => 'string',
         'prelacion_origen' => 'int',
         'prelacion_actual' => 'int',
@@ -22,7 +22,7 @@ class CAN implements ModelInterface, ArrayAccess
         'fecha_macan' => 'string'
     ];
     
-    protected static $RCCFicoScoreSimulacionFormats = [
+    protected static $RCCFSFormats = [
         'identificador_can' => null,
         'prelacion_origen' => 'int32',
         'prelacion_actual' => 'int32',
@@ -33,14 +33,14 @@ class CAN implements ModelInterface, ArrayAccess
         'fecha_macan' => 'yyyy-MM-dd'
     ];
     
-    public static function RCCFicoScoreSimulacionTypes()
+    public static function RCCFSTypes()
     {
-        return self::$RCCFicoScoreSimulacionTypes;
+        return self::$RCCFSTypes;
     }
     
-    public static function RCCFicoScoreSimulacionFormats()
+    public static function RCCFSFormats()
     {
-        return self::$RCCFicoScoreSimulacionFormats;
+        return self::$RCCFSFormats;
     }
     
     protected static $attributeMap = [
@@ -93,7 +93,7 @@ class CAN implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$RCCFicoScoreSimulacionModelName;
+        return self::$RCCFSModelName;
     }
     
     

@@ -1,6 +1,6 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client;
+namespace RCCFS\Simulacion\MX\Client;
 
 class ObjectSerializer
 {
@@ -23,19 +23,19 @@ class ObjectSerializer
             return $data;
         } elseif (is_object($data)) {
             $values = [];
-            $formats = $data::RCCFicoScoreSimulacionFormats();
-            foreach ($data::RCCFicoScoreSimulacionTypes() as $property => $RCCFicoScoreSimulacionType) {
+            $formats = $data::RCCFSFormats();
+            foreach ($data::RCCFSTypes() as $property => $RCCFSType) {
                 $getter = $data::getters()[$property];
                 $value = $data->$getter();
                 if ($value !== null
-                    && !in_array($RCCFicoScoreSimulacionType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
-                    && method_exists($RCCFicoScoreSimulacionType, 'getAllowableEnumValues')
-                    && !in_array($value, $RCCFicoScoreSimulacionType::getAllowableEnumValues(), true)) {
-                    $imploded = implode("', '", $RCCFicoScoreSimulacionType::getAllowableEnumValues());
-                    throw new \InvalidArgumentException("Invalid value for enum '$RCCFicoScoreSimulacionType', must be one of: '$imploded'");
+                    && !in_array($RCCFSType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
+                    && method_exists($RCCFSType, 'getAllowableEnumValues')
+                    && !in_array($value, $RCCFSType::getAllowableEnumValues(), true)) {
+                    $imploded = implode("', '", $RCCFSType::getAllowableEnumValues());
+                    throw new \InvalidArgumentException("Invalid value for enum '$RCCFSType', must be one of: '$imploded'");
                 }
                 if ($value !== null) {
-                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $RCCFicoScoreSimulacionType, $formats[$property]);
+                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $RCCFSType, $formats[$property]);
                 }
             }
             return (object)$values;
@@ -165,13 +165,13 @@ class ObjectSerializer
         } else {
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\RCCFicoScoreSimulacion\Client\Model\\' . $data->{$discriminator};
+                $subclass = '\RCCFS\Simulacion\MX\Client\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }
             }
             $instance = new $class();
-            foreach ($instance::RCCFicoScoreSimulacionTypes() as $property => $type) {
+            foreach ($instance::RCCFSTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
                 if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
                     continue;
