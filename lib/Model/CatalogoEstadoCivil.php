@@ -1,7 +1,7 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+namespace RCCFS\Simulacion\MX\Client\Model;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class CatalogoEstadoCivil
 {

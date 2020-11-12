@@ -1,17 +1,17 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 use \ArrayAccess;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class PersonaRespuesta implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $RCCFicoScoreSimulacionModelName = 'PersonaRespuesta';
+    protected static $RCCFSModelName = 'PersonaRespuesta';
     
-    protected static $RCCFicoScoreSimulacionTypes = [
+    protected static $RCCFSTypes = [
         'apellido_paterno' => 'string',
         'apellido_materno' => 'string',
         'apellido_adicional' => 'string',
@@ -21,15 +21,15 @@ class PersonaRespuesta implements ModelInterface, ArrayAccess
         'curp' => 'string',
         'numero_seguridad_social' => 'string',
         'nacionalidad' => 'string',
-        'residencia' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoResidencia',
-        'estado_civil' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoEstadoCivil',
-        'sexo' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoSexo',
+        'residencia' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoResidencia',
+        'estado_civil' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoEstadoCivil',
+        'sexo' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoSexo',
         'clave_elector_ife' => 'string',
         'numero_dependientes' => 'int',
         'fecha_defuncion' => 'string'
     ];
     
-    protected static $RCCFicoScoreSimulacionFormats = [
+    protected static $RCCFSFormats = [
         'apellido_paterno' => null,
         'apellido_materno' => null,
         'apellido_adicional' => null,
@@ -47,14 +47,14 @@ class PersonaRespuesta implements ModelInterface, ArrayAccess
         'fecha_defuncion' => 'yyyy-MM-dd'
     ];
     
-    public static function RCCFicoScoreSimulacionTypes()
+    public static function RCCFSTypes()
     {
-        return self::$RCCFicoScoreSimulacionTypes;
+        return self::$RCCFSTypes;
     }
     
-    public static function RCCFicoScoreSimulacionFormats()
+    public static function RCCFSFormats()
     {
-        return self::$RCCFicoScoreSimulacionFormats;
+        return self::$RCCFSFormats;
     }
     
     protected static $attributeMap = [
@@ -128,7 +128,7 @@ class PersonaRespuesta implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$RCCFicoScoreSimulacionModelName;
+        return self::$RCCFSModelName;
     }
     
     

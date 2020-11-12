@@ -1,6 +1,6 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client;
+namespace RCCFS\Simulacion\MX\Client;
 
 use \Exception;
 
