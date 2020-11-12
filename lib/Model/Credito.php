@@ -1,29 +1,29 @@
 <?php
 
-namespace RCCFicoScoreSimulacion\Client\Model;
+namespace RCCFS\Simulacion\MX\Client\Model;
 
 use \ArrayAccess;
-use \RCCFicoScoreSimulacion\Client\ObjectSerializer;
+use \RCCFS\Simulacion\MX\Client\ObjectSerializer;
 
 class Credito implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $RCCFicoScoreSimulacionModelName = 'Credito';
+    protected static $RCCFSModelName = 'Credito';
     
-    protected static $RCCFicoScoreSimulacionTypes = [
+    protected static $RCCFSTypes = [
         'fecha_actualizacion' => 'string',
         'registro_impugnado' => 'int',
         'clave_otorgante' => 'string',
         'nombre_otorgante' => 'string',
         'cuenta_actual' => 'string',
-        'tipo_responsabilidad' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoTipoResponsabilidad',
-        'tipo_cuenta' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoTipoCuenta',
-        'tipo_credito' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoTipoCredito',
-        'clave_unidad_monetaria' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoMoneda',
+        'tipo_responsabilidad' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoTipoResponsabilidad',
+        'tipo_cuenta' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoTipoCuenta',
+        'tipo_credito' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoTipoCredito',
+        'clave_unidad_monetaria' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoMoneda',
         'valor_activo_valuacion' => 'int',
         'numero_pagos' => 'int',
-        'frecuencia_pagos' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoFrecuenciaPago',
+        'frecuencia_pagos' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoFrecuenciaPago',
         'monto_pagar' => 'float',
         'fecha_apertura_cuenta' => 'string',
         'fecha_ultimo_pago' => 'string',
@@ -41,7 +41,7 @@ class Credito implements ModelInterface, ArrayAccess
         'historico_pagos' => 'string',
         'fecha_reciente_historico_pagos' => 'string',
         'fecha_antigua_historico_pagos' => 'string',
-        'clave_prevencion' => '\RCCFicoScoreSimulacion\Client\Model\CatalogoPrevencion',
+        'clave_prevencion' => '\RCCFS\Simulacion\MX\Client\Model\CatalogoPrevencion',
         'total_pagos_reportados' => 'int',
         'peor_atraso' => 'float',
         'fecha_peor_atraso' => 'string',
@@ -49,10 +49,10 @@ class Credito implements ModelInterface, ArrayAccess
         'monto_ultimo_pago' => 'double',
         'id_domicilio' => 'string',
         'servicios' => 'string',
-        'can' => '\RCCFicoScoreSimulacion\Client\Model\CAN'
+        'can' => '\RCCFS\Simulacion\MX\Client\Model\CAN'
     ];
     
-    protected static $RCCFicoScoreSimulacionFormats = [
+    protected static $RCCFSFormats = [
         'fecha_actualizacion' => 'yyyy-MM-dd',
         'registro_impugnado' => 'int32',
         'clave_otorgante' => null,
@@ -93,14 +93,14 @@ class Credito implements ModelInterface, ArrayAccess
         'can' => null
     ];
     
-    public static function RCCFicoScoreSimulacionTypes()
+    public static function RCCFSTypes()
     {
-        return self::$RCCFicoScoreSimulacionTypes;
+        return self::$RCCFSTypes;
     }
     
-    public static function RCCFicoScoreSimulacionFormats()
+    public static function RCCFSFormats()
     {
-        return self::$RCCFicoScoreSimulacionFormats;
+        return self::$RCCFSFormats;
     }
     
     protected static $attributeMap = [
@@ -243,7 +243,7 @@ class Credito implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$RCCFicoScoreSimulacionModelName;
+        return self::$RCCFSModelName;
     }
     
     
