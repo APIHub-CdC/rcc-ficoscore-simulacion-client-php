@@ -17,6 +17,7 @@ PHP 7.1 ó superior
 apt-get install php7.3-curl
 apt-get install php7.3-mbstring
 ```
+
 - Composer [vea como instalar][1]
 
 ## Instalación
