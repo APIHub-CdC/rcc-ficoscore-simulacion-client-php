@@ -91,7 +91,7 @@ public function testGetReporte()
     $request->setDomicilio($domicilio);
 
     try {
-        $result = $this->apiInstance->getReporte($this->x_api_key, $request, $this->x_full_report);
+        $result = $this->apiInstance->getReporte($this->x_api_key, $request);
         print_r($result);
         $this->assertTrue($result->getFolioConsulta()!==null);
 
